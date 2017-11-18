@@ -1,0 +1,102 @@
+/*!
+ * authors: chenfx (since1991_vip@163.com)
+ * date:    2017-11-18 18:18:18
+ * version: v1.0.0
+ */
+
+@import '../../static/scss/_custom.scss';
+@import '../../static/scss/_modal.scss';
+@import '../../static/scss/_reset.scss';
+@mixin transition($arr) {
+    -webkit-transition: $arr;
+    transition: $arr;
+}
+
+@mixin transform($arr) {
+    -webkit-transform: $arr;
+    transform: $arr;
+}
+
+@mixin animation($arr) {
+    -webkit-animation: $arr;
+    animation: $arr;
+}
+
+@mixin box_shodow($arr) {
+    -webkit-box-shadow: $arr;
+    box-shadow: $arr;
+}
+
+@mixin box_sizing($arr) {
+    -webkit-box-sizing: $arr;
+    box-sizing: $arr;
+}
+
+@mixin pos {
+    position: relative;
+}
+
+@mixin abs {
+    position: absolute;
+}
+
+@mixin abs-lt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+@mixin fl {
+    float: left;
+}
+
+@mixin fr {
+    float: right;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font: 14px/1.5 "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    color: #333;
+    min-width: 1170px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    @include pos;
+    width: 1170px;
+    margin: 0 auto;
+}
+
+
+/*格式化样式*/
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+    margin: 0;
+    padding: 0;
+}
