@@ -340,41 +340,119 @@ td {
             }
             .in-tag {
                 margin-top: 10px;
-                ul {
+                .ul-tag {
                     @include pos;
                     height: 40px;
                     white-space: nowrap;
                     @include transition(all .2s);
-                }
-                li {
-                    @include fl;
-                    vertical-align: middle;
-                    font-size: 14px;
-                    @include transition(all .2s);
-                    @include pos;
-                    line-height: 40px;
-                    min-width: 65px;
-                    padding: 0 15px;
-                    text-align: center;
-                    cursor: pointer;
-                    color: #797979;
-                    &.tag-this {
-                        color: #f84b9c;
+                    li {
+                        @include fl;
+                        vertical-align: middle;
+                        font-size: 14px;
+                        @include transition(all .2s);
+                        @include pos;
+                        line-height: 40px;
+                        min-width: 65px;
+                        padding: 0 15px;
+                        text-align: center;
+                        cursor: pointer;
+                        color: #797979;
+                        &.tag-this {
+                            color: #f84b9c;
+                        }
+                    }
+                    .tag-this {
+                        &:after {
+                            @include abs;
+                            left: 0;
+                            top: 0;
+                            content: '';
+                            width: 100%;
+                            height: 41px;
+                            pointer-events: none;
+                            box-sizing: border-box;
+                            border: none;
+                            border-radius: 0;
+                            border-bottom: 2px solid #f84b9c;
+                        }
                     }
                 }
-                .tag-this {
-                    &:after {
+            }
+            .tag-content {
+                margin: 10px 0;
+                .tag-item {
+                    display: none;
+                }
+                .tag-show {
+                    display: block;
+                }
+                .ul-con {
+                    margin-top: 10px;
+                    li {
+                        margin-bottom: 15px;
+                        background: #fff;
+                    }
+                    .module-card {
+                        @include pos;
+                        padding: 15px;
+                        border-radius: 3px;
+                        background: #fff;
+                        @include transition(all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) 0s);
+                        @include box_shodow(0px 0px 13px rgba(223, 221, 230, 0.3));
+                    }
+                    h4 {
+                        font-weight: normal;
+                        a {
+                            color: #333;
+                            @include transition(all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s);
+                            &:hover {
+                                color: #f84b9c;
+                            }
+                        }
+                    }
+                    .in-news-list {
+                        margin-top: 15px;
+                    }
+                    .news-img {
+                        display: inline-block;
+                        width: 200px;
+                        margin-right: 10px;
+                        vertical-align: top;
+                        img {
+                            display: inline-block;
+                        }
+                    }
+                    .news-con {
+                        display: inline-block;
+                        @include pos;
+                        width: 270px;
+                        height: 110px;
+                        font-size: 14px;
+                        color: #5e5c65;
+                        line-height: 24px;
+                    }
+                    .news-time {
                         @include abs;
                         left: 0;
-                        top: 0;
-                        content: '';
-                        width: 100%;
-                        height: 41px;
-                        pointer-events: none;
-                        box-sizing: border-box;
-                        border: none;
-                        border-radius: 0;
-                        border-bottom: 2px solid #f84b9c;
+                        bottom: 5px;
+                        font-size: 12px;
+                        color: #979797;
+                        line-height: 0;
+                        span {
+                            margin-right: 10px;
+                        }
+                    }
+                    .btn-primary {
+                        @include abs;
+                        right: 0;
+                        bottom: 5px;
+                        font-size: 14px;
+                        color: #f84b9c;
+                        line-height: 0;
+                        @include transition(all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s);
+                        &:hover {
+                            color: #009688;
+                        }
                     }
                 }
             }
