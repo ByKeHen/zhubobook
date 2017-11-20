@@ -285,12 +285,14 @@ td {
         .con {
             @include fl;
         }
-        .con-left,
-        .con-right {
+        .con-left {
             width: 305px;
         }
+        .con-right {
+            width: 270px;
+        }
         .con-middle {
-            width: 560px - 20px - 20px;
+            width: 560px - 20px - 20px + 35px;
             margin: 0 20px;
         }
         .in-title {
@@ -336,7 +338,7 @@ td {
         }
         .con-middle {
             .in-banner {
-                height: 223px;
+                height: 238px;
             }
             .in-tag {
                 margin-top: 10px;
@@ -430,6 +432,13 @@ td {
                         font-size: 14px;
                         color: #5e5c65;
                         line-height: 24px;
+                        .desc {
+                            height: 72px;
+                            display: -webkit-box;
+                            -webkit-box-orient: vertical;
+                            -webkit-line-clamp: 3;
+                            overflow: hidden;
+                        }
                     }
                     .news-time {
                         @include abs;
@@ -454,6 +463,75 @@ td {
                             color: #009688;
                         }
                     }
+                }
+            }
+        }
+        .con-right {
+            overflow: hidden;
+            .in-menu {
+                margin-bottom: 20px;
+            }
+            .in-btn-group {
+                width: 100%;
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 0;
+                .zb-btn {
+                    display: inline-block;
+                    width: 50%;
+                    height: 38px;
+                    line-height: 38px;
+                    text-align: center;
+                    font-size: 12px;
+                    color: #fff;
+                    background: #f84b9c;
+                    border-radius: 0 2px 2px 0;
+                    border-left: 1px solid rgba(255, 255, 255, .5);
+                    @include transition(all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s);
+                    @include box_shodow(0px 0px 13px rgba(248, 75, 156, 0.3));
+                    &:first-child {
+                        border-left: none;
+                        border-radius: 2px 0 0 2px;
+                    }
+                    &:hover {
+                        background: #009688;
+                    }
+                }
+            }
+            .in-title {
+                @include pos;
+                h4 {
+                    font-weight: normal;
+                    font-size: 16px;
+                    line-height: 30px;
+                    color: #f84b9c;
+                }
+                .line {
+                    display: block;
+                    width: 28px;
+                    height: 1px;
+                    border-bottom: 3px solid #f84b9c;
+                }
+            }
+            .in-interview {
+                margin-top: 20px;
+                width: 100%;
+                .in-interview-img {
+                    // height: 176px;
+                }
+                a {
+                    display: block;
+                }
+            }
+            .in-interview-con {
+                margin: 20px 0;
+                font-size: 14px;
+                line-height: 24px;
+            }
+            .in-promo-list {
+                .in-avding {
+                    text-align: center;
+                    margin-bottom: 20px;
                 }
             }
         }
