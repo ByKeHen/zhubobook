@@ -33,8 +33,13 @@ function loadlazy() {
     var _header = $('#header');
     var _footer = $('#footer');
 
+    //加载 header
     _header.load('/views/header.html', function() {
         headerLoad = true;
         loadlazy();
+    });
+    //加载footer
+    _footer.load('/views/footer.html', function() {
+        footerLoad = true;
     });
 })();
