@@ -151,6 +151,66 @@ td {
     padding: 0;
 }
 
+.zbTitSty {
+    @include pos;
+    text-align: center;
+    margin: 20px 0;
+    .zhubo-tit {
+        @include abs;
+        left: 50%;
+        margin-top: 30px;
+        width: 150px;
+        margin-left: -(150px / 2);
+        text-align: center;
+        z-index: 100;
+        h2 {
+            @include pos;
+            font-size: 24px;
+            font-weight: normal;
+            color: #000;
+        }
+        .line {
+            @include abs;
+            right: 26px;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background: #f84b9c;
+        }
+    }
+    .zhubo-tit-eng {
+        font-family: "arial";
+        font-weight: 800;
+        color: #eae9ef;
+        font-size: 60px;
+    }
+}
+
+.zbListSty {
+    @include fl;
+    padding: 16px;
+    width: 25%;
+    @include transition(all .4s ease-out);
+}
+
+.zbListCard {
+    @include pos;
+    background: #fff;
+    margin: 0 auto;
+    width: 260px;
+    border-radius: 2px;
+    @include transition(all .4s ease-out);
+    &:hover {
+        @include box_shodow(0 15px 30px rgba(0, 0, 0, .15));
+    }
+}
+
+.zbAnchorImg {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 2px 2px 0 0;
+}
+
 .sec-header {
     height: 70px;
     background: #fff;
@@ -173,35 +233,39 @@ td {
             @include pos;
             display: inline-block;
             line-height: 70px;
-            vertical-align: middle;
             padding: 0 20px;
+            vertical-align: middle;
             a {
-                color: #333;
                 display: block;
+                color: #333;
+                @include transition(all .4s ease-out);
+                &:hover {
+                    color: #f84b9c;
+                }
             }
         }
     }
 }
 
 .sec-banner {
+    @include pos;
     height: 500px;
     overflow: hidden;
-    @include pos;
     .banner-container {
-        text-align: center;
         @include pos;
         width: 100%;
         height: 100%;
         overflow: hidden;
+        text-align: center;
     }
     .banner {
-        width: 100%;
-        height: 100%;
         @include abs;
         top: 0;
-        left: 0;
         right: 0;
         bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         opacity: 0;
         @include transition(all .4s ease-out);
         &.banner-this {
@@ -255,10 +319,10 @@ td {
                 border-radius: 3px;
                 cursor: pointer;
                 background: #f84b9c;
-                @include box_shodow(0px 0px 13px rgba(248, 75, 156, 0.3));
-                @include transition(all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s);
+                @include transition(all .4s ease-out);
                 &:hover {
-                    background: #009688;
+                    background: #f56aae;
+                    @include box_shodow(0 15px 30px rgba(245, 106, 175, .2));
                 }
             }
         }
@@ -277,12 +341,12 @@ td {
                 color: #fff;
             }
             .line {
+                @include abs;
+                right: 0;
                 width: 28px;
                 height: 7px;
                 background: #fff;
                 margin-top: 20px;
-                @include abs;
-                right: 0;
             }
             .platform-en {
                 margin-top: 50px;
@@ -349,7 +413,7 @@ td {
         cursor: pointer;
         background: rgba(0, 0, 0, .2);
         z-index: 100;
-        @include transition(all .3s);
+        @include transition(all .3s ease-out);
         &.prev {
             left: 15px;
         }
@@ -393,8 +457,35 @@ td {
         }
         .con-menu {
             margin-top: 20px;
+            overflow: hidden;
             .menu-item {
                 margin-bottom: 15px;
+                opacity: 0;
+                @include transform(translate3d(0, 618px, 0));
+            }
+            .menu-item-1 {
+                @include transition(all .5s 0s ease-out);
+            }
+            .menu-item-2 {
+                @include transition(all .5s .4s ease-out);
+            }
+            .menu-item-3 {
+                @include transition(all .5s .8s ease-out);
+            }
+            .menu-item-4 {
+                @include transition(all .5s 1.2s ease-out);
+            }
+            .menu-item-5 {
+                @include transition(all .5s 1.6s ease-out);
+            }
+            .menu-item-6 {
+                @include transition(all .5s 2s ease-out);
+            }
+            .menu-item-7 {
+                @include transition(all .5s 2.4s ease-out);
+            }
+            .menu-item-8 {
+                @include transition(all .5s 2.8s ease-out);
             }
             .module-card {
                 @include pos;
@@ -427,19 +518,19 @@ td {
                     @include pos;
                     height: 40px;
                     white-space: nowrap;
-                    @include transition(all .2s);
+                    @include transition(all .4s ease-out);
                     li {
+                        @include pos;
                         @include fl;
                         vertical-align: middle;
                         font-size: 14px;
-                        @include transition(all .2s);
-                        @include pos;
                         line-height: 40px;
                         min-width: 65px;
                         padding: 0 15px;
                         text-align: center;
                         cursor: pointer;
                         color: #797979;
+                        @include transition(all .4s ease-out);
                         &.tag-this {
                             color: #f84b9c;
                         }
@@ -480,14 +571,14 @@ td {
                         padding: 15px;
                         border-radius: 3px;
                         background: #fff;
-                        @include transition(all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) 0s);
-                        @include box_shodow(0px 0px 13px rgba(223, 221, 230, 0.3));
+                        @include transition(all .4s cubic-bezier(.215, .61, .355, 1) 0s);
+                        @include box_shodow(0px 0px 13px rgba(223, 221, 230, .3));
                     }
                     h4 {
                         font-weight: normal;
                         a {
                             color: #333;
-                            @include transition(all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s);
+                            @include transition(all .4s cubic-bezier(.215, .61, .355, 1) 0s);
                             &:hover {
                                 color: #f84b9c;
                             }
@@ -539,7 +630,7 @@ td {
                         font-size: 14px;
                         color: #f84b9c;
                         line-height: 0;
-                        @include transition(all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s);
+                        @include transition(all .4s cubic-bezier(.215, .61, .355, 1) 0s);
                         &:hover {
                             color: #009688;
                         }
@@ -568,8 +659,7 @@ td {
                     background: #f84b9c;
                     border-radius: 0 2px 2px 0;
                     border-left: 1px solid rgba(255, 255, 255, .5);
-                    @include transition(all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s);
-                    @include box_shodow(0px 0px 13px rgba(248, 75, 156, 0.3));
+                    @include transition(all .4s ease);
                     &:first-child {
                         border-left: none;
                         border-radius: 2px 0 0 2px;
@@ -617,23 +707,32 @@ td {
             }
         }
     }
+    &.is-visible {
+        .content {
+            .con-menu {
+                .menu-item {
+                    opacity: 1;
+                    @include transform(translate3d(0, 0, 0));
+                }
+            }
+        }
+    }
 }
 
 .sec-search {
     margin: 10px 0 40px 0;
     .module-card {
-        background: #fff;
         @include pos;
+        background: #fff;
         border-radius: 2px;
         padding: 15px 20px;
-        @include transition(all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) 0s);
-        @include box_shodow(0px 0px 13px rgba(223, 221, 230, 0.3));
+        @include transition(all .6s cubic-bezier(.215, .61, .355, 1) 0s);
+        @include box_shodow(0px 0px 13px rgba(223, 221, 230, .3));
     }
     .item-inline {
         @include pos;
         display: inline-block;
         margin-right: 15px;
-        // margin: 0 10px 5px 0;
         input {
             display: block;
             width: 100%;
@@ -645,7 +744,7 @@ td {
             padding-left: 10px;
             outline: 0;
             -webkit-appearance: none;
-            @include transition(all .3s);
+            @include transition(all .4s ease-out);
         }
     }
     .zb-form-select {
@@ -663,7 +762,7 @@ td {
             outline: 0;
             -webkit-appearance: none;
             cursor: pointer;
-            @include transition(all .3s);
+            @include transition(all .4s ease-out);
         }
         .icon {
             @include abs;
@@ -674,7 +773,7 @@ td {
             border-width: 6px;
             border-top-color: #c2c2c2;
             border-top-style: solid;
-            @include transition(all .3s);
+            @include transition(all .4s ease-out);
             width: 0;
             height: 0;
         }
@@ -693,9 +792,9 @@ td {
             border-radius: 2px;
             @include box_shodow(0 2px 4px rgba(0, 0, 0, .12));
             box-sizing: border-box;
-            display: block;
-            top: auto;
-            bottom: 42px;
+            // display: block;
+            // top: auto;
+            // bottom: 42px;
             dd {
                 cursor: pointer;
                 padding: 0 10px;
@@ -742,8 +841,8 @@ td {
         outline: none;
         -webkit-appearance: none;
         background: #f84b9c;
-        @include transition(all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s);
-        @include box_shodow(0px 0px 13px rgba(248, 75, 156, 0.3));
+        @include transition(all .4s cubic-bezier(.215, .61, .355, 1) 0s);
+        @include box_shodow(0px 0px 13px rgba(248, 75, 156, .3));
         &:hover {
             background: #009688;
         }
@@ -751,54 +850,15 @@ td {
 }
 
 .sec-news-zhubo {
-    @include pos;
-    text-align: center;
-    margin: 20px 0;
-    .zhubo-tit {
-        @include abs;
-        left: 50%;
-        margin-top: 30px;
-        width: 150px;
-        margin-left: -(150px / 2);
-        text-align: center;
-        z-index: 100;
-        h2 {
-            @include pos;
-            font-size: 24px;
-            font-weight: normal;
-            color: #000;
-        }
-        .line {
-            @include abs;
-            right: 26px;
-            bottom: 0;
-            width: 50px;
-            height: 3px;
-            background: #f84b9c;
-        }
-    }
-    .zhubo-tit-eng {
-        font-family: "arial";
-        font-weight: 800;
-        color: #eae9ef;
-        font-size: 60px;
-    }
+    @extend .zbTitSty;
 }
 
 .sec-zhubo-list {
     .item-list {
-        @include fl;
-        padding: 16px;
-        width: 25%;
+        @extend .zbListSty;
     }
     .moudle-card {
-        @include pos;
-        background: #fff;
-        margin: 0 auto;
-        width: 260px;
-        border-radius: 2px;
-        @include transition(all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) 0s);
-        @include box_shodow(0px 0px 13px rgba(223, 221, 230, 0.3));
+        @extend .zbListCard;
     }
     .anchor-platform {
         @include abs;
@@ -813,16 +873,14 @@ td {
         text-align: center;
     }
     .anchor-img {
-        width: 100%;
-        overflow: hidden;
-        border-radius: 2px 2px 0 0;
+        @extend .zbAnchorImg;
     }
     .anchor-con {
-        padding: 20px;
         @include pos;
+        padding: 20px;
         .name {
-            font-weight: normal;
             @include pos;
+            font-weight: normal;
             color: #1d1d1d;
             font-size: 16px;
             line-height: 22px;
@@ -859,8 +917,8 @@ td {
             cursor: pointer;
             padding: 0 20px;
             background: #f84b9c;
-            @include transition(all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s);
-            @include box_shodow(0px 0px 13px rgba(248, 75, 156, 0.3));
+            @include transition(all .4s cubic-bezier(.215, .61, .355, 1) 0s);
+            @include box_shodow(0px 0px 13px rgba(248, 75, 156, .3));
             &:hover {
                 background: #009688;
             }
@@ -869,66 +927,25 @@ td {
 }
 
 .sec-zhubo-meitu {
-    @include pos;
-    text-align: center;
-    margin: 20px 0;
-    .zhubo-tit {
-        @include abs;
-        left: 50%;
-        margin-top: 30px;
-        width: 150px;
-        margin-left: -(150px / 2);
-        text-align: center;
-        z-index: 100;
-        h2 {
-            @include pos;
-            font-size: 24px;
-            font-weight: normal;
-            color: #000;
-        }
-        .line {
-            @include abs;
-            right: 26px;
-            bottom: 0;
-            width: 50px;
-            height: 3px;
-            background: #f84b9c;
-        }
-    }
-    .zhubo-tit-eng {
-        font-family: "arial";
-        font-weight: 800;
-        color: #eae9ef;
-        font-size: 60px;
-    }
+    @extend .zbTitSty
 }
 
 .sec-zb-meitu-list {
     .item-list {
-        @include fl;
-        padding: 16px;
-        width: 25%;
+        @extend .zbListSty
     }
     .moudle-card {
-        @include pos;
-        background: #fff;
-        margin: 0 auto;
-        width: 260px;
-        border-radius: 2px;
-        @include transition(all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) 0s);
-        @include box_shodow(0px 0px 13px rgba(223, 221, 230, 0.3));
+        @extend .zbListCard
     }
     .anchor-img {
-        width: 100%;
-        overflow: hidden;
-        border-radius: 2px 2px 0 0;
+        @extend .zbAnchorImg
     }
     .anchor-con {
-        padding: 20px;
         @include pos;
+        padding: 20px;
         .name {
-            font-weight: normal;
             @include pos;
+            font-weight: normal;
             color: #1d1d1d;
             font-size: 16px;
             line-height: 22px;
@@ -991,7 +1008,7 @@ td {
                 line-height: 24px;
                 a {
                     color: #a7a7a7;
-                    @include transition(all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s);
+                    @include transition(all .4s cubic-bezier(.215, .61, .355, 1) 0s);
                     &:hover {
                         color: #f84b9c;
                     }

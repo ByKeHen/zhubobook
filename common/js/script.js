@@ -58,3 +58,19 @@ function bannerEvent() {
     });
 }
 bannerEvent();
+
+/* tag切换 */
+function tagEvent() {
+    var _tagTit = $('#tagTit');
+    var _tagCon = $('#tagCon');
+    var _tagTitli = _tagTit.find('li');
+    var _tagConli = _tagCon.find('.tag-item');
+    _tagTitli.on('click', function() {
+        var _self = $(this);
+        _self.addClass('tag-this').siblings().removeClass('tag-this');
+        var _idex = _self.index();
+
+        _tagConli.removeClass('tag-show').eq(_idex).addClass('tag-show');
+    });
+}
+tagEvent();
