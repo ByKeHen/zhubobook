@@ -8,11 +8,11 @@
     <meta name="description" content="主播百科是一部为喜欢看直播和喜欢做主播的用户所提供的百科全书，旨在创造一个国内互联网内最专业的主播平台。">
     <meta name="keywords" content="主播百科,网络,斗鱼,熊猫,战旗,虎牙,YY,主播,直播,直播间">
     <link rel="shortcut icon" href="/common/img/favicon.jpg" type="image/x-icon">
-    <link rel="stylesheet" href="../public/css/common.min.css?v=f24cd37">
+    <link rel="stylesheet" href="../public/css/common.min.css?v=613ec96">
     <link rel="stylesheet" href="../public/css/style.min.css?v=7d2c6e1">
 </head>
 
-<body id="bd">
+<body id="bd" v-cloak>
     <div class="sec sec-header" id="header">
         <!-- 公共 header -->
     </div>
@@ -71,44 +71,9 @@
                     </div>
                     <div class="con-menu">
                         <ul class="clearfix">
-                            <li class="menu-item menu-item-1">
+                            <li v-for="todo in jianbaoList" class="menu-item menu-item-{{$index + 1}}" track-by="$index" v-if="$index < 8">
                                 <div class="module-card">
-                                    <a href="index.html">斗鱼宣布获得D轮融资 招银国际领投</a>
-                                </div>
-                            </li>
-                            <li class="menu-item menu-item-2">
-                                <div class="module-card">
-                                    <a href="index.html">前lgd职业选手法王欠钱不还？直播讲出真相</a>
-                                </div>
-                            </li>
-                            <li class="menu-item menu-item-3">
-                                <div class="module-card">
-                                    <a href="index.html">传苹果公司将于2018年推出视频直播服务</a>
-                                </div>
-                            </li>
-                            <li class="menu-item menu-item-4">
-                                <div class="module-card">
-                                    <a href="index.html">出纳盗款50万 半数打赏主播</a>
-                                </div>
-                            </li>
-                            <li class="menu-item menu-item-5">
-                                <div class="module-card">
-                                    <a href="index.html">女主播离职 平台拒付工资败诉</a>
-                                </div>
-                            </li>
-                            <li class="menu-item menu-item-6">
-                                <div class="module-card">
-                                    <a href="index.html">小智再度回应不露脸：主播靠的是实力，而不是靠颜值</a>
-                                </div>
-                            </li>
-                            <li class="menu-item menu-item-7">
-                                <div class="module-card">
-                                    <a href="index.html">17岁少年为讨好网络女主播 转走同学手机里3万多</a>
-                                </div>
-                            </li>
-                            <li class="menu-item menu-item-8">
-                                <div class="module-card">
-                                    <a href="index.html">男子假扮粉丝约见女主播 登门入室后实施抢劫</a>
+                                    <a href="{{todo.href}}">{{todo.title}}</a>
                                 </div>
                             </li>
                         </ul>

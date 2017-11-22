@@ -82,3 +82,32 @@ $(function() {
         timeout: 3000
     });
 });
+
+var apiJianbao = '/controller/index/api_jianbao.json';
+var _common = {
+    sendAjax: function(api, params, dataType, callback) {
+        $.ajax({
+            url: api,
+            data: params,
+            dataType: dataType,
+            success: callback
+        });
+    }
+};
+
+var vm = new Vue({
+    el: '#bd',
+    data: {
+        jianbaoList: []
+    }
+});
+
+_common.sendAjax(apiJianbao, {}, 'json', function(response) {
+    if (response.result === 'success') {
+        var res = response.data;
+        vm.jianbaoList = res.jianbao;
+
+    } else {
+        return;
+    }
+});
