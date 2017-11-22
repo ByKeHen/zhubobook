@@ -74,3 +74,11 @@ function tagEvent() {
     });
 }
 tagEvent();
+
+$(function() {
+    $('#slideshow').cycle({
+        fx: 'scrollLeft',
+        speed: 300,
+        timeout: 3000
+    });
+});

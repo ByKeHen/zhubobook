@@ -228,21 +228,48 @@ td {
         @include fr;
         ul {
             padding: 0 20px;
+            @include pos;
         }
         li {
             @include pos;
-            display: inline-block;
+            @include fl;
             line-height: 70px;
             padding: 0 20px;
             vertical-align: middle;
             a {
                 display: block;
                 color: #333;
-                @include transition(all .4s ease-out);
+                @include pos;
+                @include transition(all .4s);
                 &:hover {
                     color: #f84b9c;
                 }
             }
+            &:before {
+                display: block;
+                content: "";
+                @include abs;
+                bottom: 0;
+                width: 0;
+                height: 5px;
+                left: 50%;
+                background: #f84b9c;
+                @include transition(all .4s);
+            }
+            &:hover:before {
+                width: 100%;
+                left: 0;
+                right: 0;
+            }
+        }
+        .nav-this {
+            @include abs;
+            bottom: 0;
+            left: 20px;
+            width: 71.89px;
+            height: 5px;
+            background: #f84b9c;
+            @include transition(all .4s);
         }
     }
 }
@@ -510,7 +537,20 @@ td {
         }
         .con-middle {
             .in-banner {
+                @include pos;
+                width: 555px;
                 height: 238px;
+                overflow: hidden;
+            }
+            .in-banner-img-box {
+                height: 238px;
+            }
+            .in-banner-img {
+                @include fl;
+                @include pos;
+                width: 555px;
+                height: 238px;
+                overflow: hidden;
             }
             .in-tag {
                 margin-top: 10px;
