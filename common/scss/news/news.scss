@@ -246,7 +246,7 @@
             background: #fff;
             border-radius: 2px;
             @include pos;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             padding: 15px;
             .btn-group {
                 display: inline-block;
@@ -309,6 +309,11 @@
                     -moz-osx-font-smoothing: grayscale;
                     font-weight: bold;
                 }
+            }
+        }
+        .side-right {
+            .moudle-card {
+                text-align: center;
             }
         }
     }
