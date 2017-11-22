@@ -1,0 +1,116 @@
+/*!
+ * authors: chenfx (since1991_vip@163.com)
+ * date:    2017-11-18 18:18:18
+ * version: v1.0.0
+ */
+
+@mixin transition($arr) {
+    -webkit-transition: $arr;
+    transition: $arr;
+}
+
+@mixin transform($arr) {
+    -webkit-transform: $arr;
+    transform: $arr;
+}
+
+@mixin animation($arr) {
+    -webkit-animation: $arr;
+    animation: $arr;
+}
+
+@mixin box_shodow($arr) {
+    -webkit-box-shadow: $arr;
+    box-shadow: $arr;
+}
+
+@mixin box_sizing($arr) {
+    -webkit-box-sizing: $arr;
+    box-sizing: $arr;
+}
+
+@mixin pos {
+    position: relative;
+}
+
+@mixin abs {
+    position: absolute;
+}
+
+@mixin abs-lt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+@mixin fl {
+    float: left;
+}
+
+@mixin fr {
+    float: right;
+}
+
+.zbTitSty {
+    @include pos;
+    text-align: center;
+    margin: 20px 0;
+    .zhubo-tit {
+        @include abs;
+        left: 50%;
+        margin-top: 30px;
+        width: 150px;
+        margin-left: -(150px / 2);
+        text-align: center;
+        z-index: 100;
+        h2 {
+            @include pos;
+            font-size: 24px;
+            font-weight: normal;
+            color: #000;
+        }
+        .line {
+            @include abs;
+            right: 26px;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background: #f84b9c;
+        }
+    }
+    .zhubo-tit-eng {
+        font-family: "arial";
+        font-weight: 800;
+        color: #eae9ef;
+        font-size: 60px;
+    }
+}
+
+.zbListSty {
+    @include fl;
+    padding: 16px;
+    width: 25%;
+    @include transition(all .4s ease-out);
+}
+
+.zbListCard {
+    @include pos;
+    background: #fff;
+    margin: 0 auto;
+    width: 260px;
+    border-radius: 2px;
+    @include transition(all .4s ease-out);
+    &:hover {
+        @include box_shodow(0 15px 30px rgba(0, 0, 0, .15));
+    }
+}
+
+.zbAnchorImg {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 2px 2px 0 0;
+}
+
+.sec-zb-nav {
+    @extend .zbTitSty;
+}
