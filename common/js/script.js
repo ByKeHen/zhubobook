@@ -84,6 +84,7 @@ $(function() {
 });
 
 var apiJianbao = '/controller/index/api_jianbao.json';
+var apiTouTiaoNews = '/controller/index/api_toutiao_news.json';
 var _common = {
     sendAjax: function(api, params, dataType, callback) {
         $.ajax({
@@ -98,15 +99,27 @@ var _common = {
 var vm = new Vue({
     el: '#bd',
     data: {
-        jianbaoList: []
+        jianbaoList: [],
+        toutiaoNews: [],
     }
 });
 
+//百科简报
 _common.sendAjax(apiJianbao, {}, 'json', function(response) {
     if (response.result === 'success') {
         var res = response.data;
         vm.jianbaoList = res.jianbao;
 
+    } else {
+        return;
+    }
+});
+
+//头条新闻
+_common.sendAjax(apiTouTiaoNews, {}, 'json', function(response) {
+    if (response.result === 'success') {
+        var res = response.data;
+        vm.toutiaoNews = res;
     } else {
         return;
     }
