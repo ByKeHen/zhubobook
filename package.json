@@ -37,6 +37,7 @@
     "gulp-util": "^3.0.8",
     "imagemin-pngquant": "^5.0.1",
     "jshint": "^2.9.5",
+    "node-sass-china": "^4.7.0",
     "path": "^0.12.7",
     "postcss-csssimple": "^1.1.1",
     "stream-combiner2": "^1.1.1"
