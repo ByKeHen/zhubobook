@@ -798,18 +798,18 @@
 }
 
 .sec-zhubo-meitu {
-    @extend .zbTitSty
+    @extend .zbTitSty;
 }
 
 .sec-zb-meitu-list {
     .item-list {
-        @extend .zbListSty
+        @extend .zbListSty;
     }
     .moudle-card {
-        @extend .zbListCard
+        @extend .zbListCard;
     }
     .anchor-img {
-        @extend .zbAnchorImg
+        @extend .zbAnchorImg;
     }
     .anchor-con {
         @include pos;
