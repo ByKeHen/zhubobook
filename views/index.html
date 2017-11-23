@@ -18,42 +18,26 @@
     </div>
     <div class="sec sec-banner" id="banner">
         <div class="banner-container">
-            <div class="banner banner-1 banner-this">
-                <div class="container">
-                    <img data-src="../public/img/2017-11-20-1243393250.jpg?v=d027e5f" alt="">
-                    <div class="banner-lf">
-                        <p class="date">04</p>
-                        <p class="month">12<em></em></p>
-                        <p class="desc">颜值身材俱好的LOL女主播。</p>
-                        <a href="index.html" class="btn btn-primary">查看主播</a>
-                    </div>
-                    <div class="banner-fr">
-                        <p class="name">小鲨鱼呐</p>
-                        <p class="platform">熊猫直播</p>
-                        <p class="line"></p>
-                        <p class="platform-en">PANDA.</p>
-                        <p class="live">LIVE</p>
-                    </div>
-                </div>
-            </div>
-            <div class="banner banner-2">
-                <div class="container">
-                    <img data-src="../public/img/2017-11-20-1504408604.jpg?v=f7f9630" alt="">
-                    <div class="banner-lf">
-                        <p class="date">12</p>
-                        <p class="month">11<em></em></p>
-                        <p class="desc">斗鱼少有的古风女主播之一</p>
-                        <a href="index.html" class="btn btn-primary">查看主播</a>
-                    </div>
-                    <div class="banner-fr">
-                        <p class="name">郭mini</p>
-                        <p class="platform">斗鱼直播</p>
-                        <p class="line"></p>
-                        <p class="platform-en">DOUYU.</p>
-                        <p class="live">LIVE</p>
+            <template v-for="(index, todo) in banner">
+                <div class="banner banner-{{index + 1}}" :class="todo.sale_sign === 1 ? 'banner-this' : ''">
+                    <div class="container">
+                        <img v-bind:src="'/public/img/' + todo.image" alt="{{todo.title}}">
+                        <div class="banner-lf">
+                            <p class="date">{{todo.date}}</p>
+                            <p class="month">{{todo.month}}<em></em></p>
+                            <p class="desc">{{todo.desc}}</p>
+                            <a href="{{todo.href}}" class="btn btn-primary">查看主播</a>
+                        </div>
+                        <div class="banner-fr">
+                            <p class="name">{{todo.name}}</p>
+                            <p class="platform">{{todo.platform}}</p>
+                            <p class="line">{{todo.line}}</p>
+                            <p class="platform-en">{{todo.platform_en}}</p>
+                            <p class="live">{{todo.live}}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </template>
         </div>
         <div class="banner-page" id="page">
             <ul class="ul-page"> </ul>
@@ -82,29 +66,9 @@
                 <div class="con con-middle">
                     <div class="in-banner">
                         <ul class="in-banner-img-box" id="slideshow">
-                            <li class="in-banner-img">
-                                <a href="index.html">
-                                    <img data-src="../public/img/2017-11-20-011317704.jpg?v=4bdac9c" alt="移动电竞直播的下半场：新生态连接新竞界">
-                                </a>
-                            </li>
-                            <li class="in-banner-img">
-                                <a href="index.html">
-                                    <img data-src="../public/img/2017-10-23-0119589020.jpg?v=28e1a0f" alt="移动电竞直播的下半场：新生态连接新竞界">
-                                </a>
-                            </li>
-                            <li class="in-banner-img">
-                                <a href="index.html">
-                                    <img data-src="../public/img/2017-09-23-0216511928.jpg?v=30e2253" alt="移动电竞直播的下半场：新生态连接新竞界">
-                                </a>
-                            </li>
-                            <li class="in-banner-img">
-                                <a href="index.html">
-                                    <img data-src="../public/img/2017-09-20-0041282682.jpg?v=d68fe95" alt="移动电竞直播的下半场：新生态连接新竞界">
-                                </a>
-                            </li>
-                            <li class="in-banner-img">
-                                <a href="index.html">
-                                    <img data-src="../public/img/2017-09-18-0543359716.jpg?v=587554d" alt="移动电竞直播的下半场：新生态连接新竞界">
+                            <li v-for="todo in sliderMap" class="in-banner-img" track-by="$index" v-if="$index < 6">
+                                <a href="{{todo.href}}">
+                                    <img v-bind:data-src="'/public/img/' + todo.image_url" alt="{{todo.title}}">
                                 </a>
                             </li>
                         </ul>
@@ -565,7 +529,7 @@
     <script src="/static/js/libs/vue.min.js?v1.0.26"></script>
     <script src="/static/js/libs/jquery.cycle.all.min.js"></script>
     <script src="../public/js/common.min.js?v=87b77db"></script>
-    <script src="../public/js/script.min.js?v=dd1fe74"></script>
+    <script src="../public/js/script.min.js?v=6f10259"></script>
 </body>
 
 </html>

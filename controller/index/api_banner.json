@@ -1,0 +1,31 @@
+{
+    "result": "success",
+    "msg": "",
+    "data": [{
+        "date": "04",
+        "month": "12",
+        "desc": "颜值身材俱好的LOL女主播。",
+        "name": "小鲨鱼呐",
+        "platform": "熊猫直播",
+        "line": "",
+        "platform_en": "PANDA.",
+        "live": "LIVE",
+        "title": "",
+        "image": "2017-11-20-1243393250.jpg",
+        "href": "javascript:void(0);",
+        "sale_sign": 1
+    }, {
+        "date": "12",
+        "month": "11",
+        "desc": "斗鱼少有的古风女主播之一",
+        "name": "郭mini",
+        "platform": "斗鱼直播",
+        "line": "",
+        "platform_en": "DOUYU.",
+        "live": "LIVE",
+        "title": "",
+        "image": "2017-11-20-1504408604.jpg",
+        "href": "javascript:void(0);",
+        "sale_sign": 0
+    }]
+}

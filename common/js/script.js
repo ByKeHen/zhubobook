@@ -57,7 +57,6 @@ function bannerEvent() {
         return;
     });
 }
-bannerEvent();
 
 /* tag切换 */
 function tagEvent() {
@@ -75,19 +74,13 @@ function tagEvent() {
 }
 tagEvent();
 
-$(function() {
-    $('#slideshow').cycle({
-        fx: 'scrollLeft',
-        speed: 300,
-        timeout: 3000
-    });
-});
-
+var apiBanner = '/controller/index/api_banner.json';
 var apiJianbao = '/controller/index/api_jianbao.json';
 var apiTouTiaoNews = '/controller/index/api_toutiao_news.json';
 var apiZhiboIndustry = '/controller/index/api_zhibo_industry.json';
 var apiZhuboNews = '/controller/index/api_zhubo_news.json';
 var apiPlatformActivity = '/controller/index/api_platform_activity.json';
+var apiSliderMap = '/controller/index/api_slider_map.json';
 var _common = {
     sendAjax: function(api, params, dataType, callback) {
         $.ajax({
@@ -102,11 +95,24 @@ var _common = {
 var vm = new Vue({
     el: '#bd',
     data: {
+        banner: [],
         jianbaoList: [],
         toutiaoNews: [],
         zhiboIndustry: [],
         zhuboNews: [],
         platformActivity: [],
+        sliderMap: [],
+    }
+});
+
+//头图banner
+_common.sendAjax(apiBanner, {}, 'json', function(response) {
+    if (response.result === 'success') {
+        var res = response.data;
+        vm.banner = res;
+
+    } else {
+        return;
     }
 });
 
@@ -155,6 +161,26 @@ _common.sendAjax(apiPlatformActivity, {}, 'json', function(response) {
     if (response.result === 'success') {
         var res = response.data;
         vm.platformActivity = res;
+    } else {
+        return;
+    }
+});
+
+//自动切换image
+function slidesMap() {
+    $('#slideshow').cycle({
+        fx: 'scrollLeft',
+        speed: 300,
+        timeout: 3000
+    });
+}
+
+//中间小图banner轮播
+_common.sendAjax(apiSliderMap, {}, 'json', function(response) {
+    if (response.result === 'success') {
+        var res = response.data;
+        vm.sliderMap = res;
+        bannerEvent();
     } else {
         return;
     }
