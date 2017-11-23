@@ -85,6 +85,9 @@ $(function() {
 
 var apiJianbao = '/controller/index/api_jianbao.json';
 var apiTouTiaoNews = '/controller/index/api_toutiao_news.json';
+var apiZhiboIndustry = '/controller/index/api_zhibo_industry.json';
+var apiZhuboNews = '/controller/index/api_zhubo_news.json';
+var apiPlatformActivity = '/controller/index/api_platform_activity.json';
 var _common = {
     sendAjax: function(api, params, dataType, callback) {
         $.ajax({
@@ -101,6 +104,9 @@ var vm = new Vue({
     data: {
         jianbaoList: [],
         toutiaoNews: [],
+        zhiboIndustry: [],
+        zhuboNews: [],
+        platformActivity: [],
     }
 });
 
@@ -109,7 +115,6 @@ _common.sendAjax(apiJianbao, {}, 'json', function(response) {
     if (response.result === 'success') {
         var res = response.data;
         vm.jianbaoList = res.jianbao;
-
     } else {
         return;
     }
@@ -120,6 +125,36 @@ _common.sendAjax(apiTouTiaoNews, {}, 'json', function(response) {
     if (response.result === 'success') {
         var res = response.data;
         vm.toutiaoNews = res;
+    } else {
+        return;
+    }
+});
+
+//直播行业
+_common.sendAjax(apiZhiboIndustry, {}, 'json', function(response) {
+    if (response.result === 'success') {
+        var res = response.data;
+        vm.zhiboIndustry = res;
+    } else {
+        return;
+    }
+});
+
+//主播新闻
+_common.sendAjax(apiZhuboNews, {}, 'json', function(response) {
+    if (response.result === 'success') {
+        var res = response.data;
+        vm.zhuboNews = res;
+    } else {
+        return;
+    }
+});
+
+//平台活动
+_common.sendAjax(apiPlatformActivity, {}, 'json', function(response) {
+    if (response.result === 'success') {
+        var res = response.data;
+        vm.platformActivity = res;
     } else {
         return;
     }
