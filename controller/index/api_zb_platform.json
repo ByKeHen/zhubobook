@@ -1,0 +1,39 @@
+{
+    "result": "success",
+    "msg": "",
+    "data": {
+        "zbplatform": [{
+            "id": "",
+            "platform": "直播平台",
+            "sale_sign": true
+        }, {
+            "id": "102",
+            "platform": "斗鱼直播",
+            "sale_sign": false
+        }, {
+            "id": "103",
+            "platform": "虎牙直播",
+            "sale_sign": false
+        }, {
+            "id": "104",
+            "platform": "熊猫直播",
+            "sale_sign": false
+        }, {
+            "id": "105",
+            "platform": "YY直播",
+            "sale_sign": false
+        }, {
+            "id": "106",
+            "platform": "龙珠直播",
+            "sale_sign": false
+        }, {
+            "id": "107",
+            "platform": "Bilibili",
+            "sale_sign": false
+        }, {
+            "id": "108",
+            "platform": "映客直播",
+            "sale_sign": false
+        }]
+    }
+}

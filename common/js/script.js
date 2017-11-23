@@ -81,6 +81,10 @@ var apiZhiboIndustry = '/controller/index/api_zhibo_industry.json';
 var apiZhuboNews = '/controller/index/api_zhubo_news.json';
 var apiPlatformActivity = '/controller/index/api_platform_activity.json';
 var apiSliderMap = '/controller/index/api_slider_map.json';
+var apizhiboPlatform = '/controller/index/api_zb_platform.json';
+var apizbIdentity = '/controller/index/api_zb_identity.json';
+var apiNewsZhubo = '/controller/index/api_news_zhubo.json';
+var apiZhuboMeitu = '/controller/index/api_zhubo_meitu.json';
 var _common = {
     sendAjax: function(api, params, dataType, callback) {
         $.ajax({
@@ -102,6 +106,11 @@ var vm = new Vue({
         zhuboNews: [],
         platformActivity: [],
         sliderMap: [],
+        zbPlatform: [],
+        zbIndentity: [],
+        zbIndentitySub: [],
+        newsZhubo: [],
+        zhuboMeitu: [],
     }
 });
 
@@ -181,6 +190,46 @@ _common.sendAjax(apiSliderMap, {}, 'json', function(response) {
         var res = response.data;
         vm.sliderMap = res;
         bannerEvent();
+    } else {
+        return;
+    }
+});
+
+//搜索直播平台
+_common.sendAjax(apizhiboPlatform, {}, 'json', function(response) {
+    if (response.result === 'success') {
+        var res = response.data;
+        vm.zbPlatform = res.zbplatform;
+    } else {
+        return;
+    }
+});
+
+//搜索主播特性
+_common.sendAjax(apizbIdentity, {}, 'json', function(response) {
+    if (response.result === 'success') {
+        var res = response.data;
+        vm.zbIndentity = res;
+    } else {
+        return;
+    }
+});
+
+//最新主播
+_common.sendAjax(apiNewsZhubo, {}, 'json', function(response) {
+    if (response.result === 'success') {
+        var res = response.data;
+        vm.newsZhubo = res;
+    } else {
+        return;
+    }
+});
+
+//主播美图
+_common.sendAjax(apiZhuboMeitu, {}, 'json', function(response) {
+    if (response.result === 'success') {
+        var res = response.data;
+        vm.zhuboMeitu = res;
     } else {
         return;
     }

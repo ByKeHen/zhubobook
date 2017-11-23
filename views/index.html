@@ -9,7 +9,7 @@
     <meta name="keywords" content="主播百科,网络,斗鱼,熊猫,战旗,虎牙,YY,主播,直播,直播间">
     <link rel="shortcut icon" href="/common/img/favicon.jpg" type="image/x-icon">
     <link rel="stylesheet" href="../public/css/common.min.css?v=613ec96">
-    <link rel="stylesheet" href="../public/css/style.min.css?v=7d2c6e1">
+    <link rel="stylesheet" href="../public/css/style.min.css?v=4c0cb6a">
 </head>
 
 <body id="bd" v-cloak>
@@ -226,9 +226,7 @@
                     </div>
                     <div class="item-inline zb-platform">
                         <select name="zb-platform" style="display:none;">
-                            <option value="" selected>直播平台</option>
-                            <option value="">直播平台1</option>
-                            <option value="">直播平台2</option>
+                            <option v-for="todo in zbPlatform" track-by="$index" v-if="$index < 10" value="{{todo.id}}">{{todo.platform}}</option>
                         </select>
                         <div class="zb-form-select">
                             <div class="select-title">
@@ -236,37 +234,20 @@
                                 <i class="icon"></i>
                             </div>
                             <dl class="select-anim select-anim-upbit">
-                                <dd value="" class="select-tips">直播平台</dd>
-                                <dd value="11" class="select-this">斗鱼直播111</dd>
-                                <dd value="12">斗鱼直播222</dd>
-                                <dd value="12">斗鱼直播222</dd>
-                                <dd value="12">斗鱼直播222</dd>
-                                <dd value="12">斗鱼直播222</dd>
-                                <dd value="12">斗鱼直播222</dd>
-                                <dd value="12">斗鱼直播222</dd>
-                                <dd value="12">斗鱼直播222</dd>
-                                <dd value="12">斗鱼直播222</dd>
-                                <dd value="12">斗鱼直播222</dd>
-                                <dd value="12">斗鱼直播222</dd>
-                                <dd value="12">斗鱼直播222</dd>
+                                <dd v-for="todo in zbPlatform" track-by="$index" v-if="$index < 10" value="{{todo.id}}" :class="todo.sale_sign?'select-tips':''">
+                                    {{todo.platform}}
+                                </dd>
                             </dl>
                         </div>
                     </div>
                     <div class="item-inline zb-identity">
                         <select name="zb-identity" style="display: none;">
                             <option value="" selected>主播特性</option>
-                            <optgroup label="游戏">
-                                <option value="">游戏主播</option>
-                                <option value="">游戏主播111</option>
-                            </optgroup>
-                            <optgroup label="娱乐/秀场">
-                                <option value="">游戏主播111</option>
-                                <option value="">游戏主播111231</option>
-                            </optgroup>
-                            <optgroup label="其他">
-                                <option value="">游戏主播6456</option>
-                                <option value="">游戏主播111Z大</option>
-                            </optgroup>
+                            <template v-for="todo in zbIndentity">
+                                <optgroup label="{{todo.title}}">
+                                    <option v-for="sub in todo.sub" value="{{sub.id}}">{{sub.name}}</option>
+                                </optgroup>
+                            </template>
                         </select>
                         <div class="zb-form-select">
                             <div class="select-title">
@@ -275,17 +256,10 @@
                             </div>
                             <dl class="select-anim select-anim-upbit select-group">
                                 <dd value="" class="select-tips">主播特性</dd>
-                                <dt>游戏</dt>
-                                <dd value="167" class="">游戏主播</dd>
-                                <dd value="167" class="">游戏主播111</dd>
-                                <dd value="167" class="">游戏主播222</dd>
-                                <dt>娱乐/秀场</dt>
-                                <dd value="170" class="select-this">娱乐主播</dd>
-                                <dd value="170" class="">娱乐主播333</dd>
-                                <dd value="170" class="">娱乐主播444</dd>
-                                <dt>其他</dt>
-                                <dd value="171" class="">户外主播</dd>
-                                <dd value="133" class="">美食主播</dd>
+                                <template v-for="todo in zbIndentity">
+                                    <dt>{{todo.title}}</dt>
+                                    <dd v-for="sub in todo.sub" value="{{sub.id}}" class="padd-20">{{sub.name}}</dd>
+                                </template>
                             </dl>
                         </div>
                     </div>
@@ -307,147 +281,21 @@
     </div>
     <div class="sec sec-zhubo-list">
         <div class="container">
-            <div class="item-list">
+            <div v-for="todo in newsZhubo" track-by="$index" v-if="$index < 16" class="item-list">
                 <div class="moudle-card">
-                    <div class="anchor-platform">熊猫直播</div>
+                    <div class="anchor-platform">{{todo.platform}}</div>
                     <div class="anchor-img">
-                        <a href="index.html">
-                            <img data-src="../public/img/2017-11-15-1245556719.jpg?v=a581632" alt="">
+                        <a href="{{todo.href}}">
+                            <img v-bind:data-src="'/public/img/' + todo.image" alt="{{todo.title}}">
                         </a>
                     </div>
                     <div class="anchor-con">
-                        <h3 class="name">萱宝儿Baby</h3>
+                        <h3 class="name">{{todo.name}}</h3>
                         <span class="line"></span>
-                        <p class="desc">氧气美女主播，才艺与颜值并存</p>
+                        <p class="desc">{{todo.desc}}</p>
                     </div>
                     <div class="anchor-link">
-                        <a href="index.html" class="btn btn-primary">主播详情</a>
-                    </div>
-                </div>
-            </div>
-            <div class="item-list">
-                <div class="moudle-card">
-                    <div class="anchor-platform">熊猫直播</div>
-                    <div class="anchor-img">
-                        <a href="index.html">
-                            <img data-src="../public/img/2017-11-15-1245556719.jpg?v=a581632" alt="">
-                        </a>
-                    </div>
-                    <div class="anchor-con">
-                        <h3 class="name">萱宝儿Baby</h3>
-                        <span class="line"></span>
-                        <p class="desc">氧气美女主播，才艺与颜值并存</p>
-                    </div>
-                    <div class="anchor-link">
-                        <a href="index.html" class="btn btn-primary">主播详情</a>
-                    </div>
-                </div>
-            </div>
-            <div class="item-list">
-                <div class="moudle-card">
-                    <div class="anchor-platform">熊猫直播</div>
-                    <div class="anchor-img">
-                        <a href="index.html">
-                            <img data-src="../public/img/2017-11-15-1245556719.jpg?v=a581632" alt="">
-                        </a>
-                    </div>
-                    <div class="anchor-con">
-                        <h3 class="name">萱宝儿Baby</h3>
-                        <span class="line"></span>
-                        <p class="desc">氧气美女主播，才艺与颜值并存</p>
-                    </div>
-                    <div class="anchor-link">
-                        <a href="index.html" class="btn btn-primary">主播详情</a>
-                    </div>
-                </div>
-            </div>
-            <div class="item-list">
-                <div class="moudle-card">
-                    <div class="anchor-platform">熊猫直播</div>
-                    <div class="anchor-img">
-                        <a href="index.html">
-                            <img data-src="../public/img/2017-11-15-1245556719.jpg?v=a581632" alt="">
-                        </a>
-                    </div>
-                    <div class="anchor-con">
-                        <h3 class="name">萱宝儿Baby</h3>
-                        <span class="line"></span>
-                        <p class="desc">氧气美女主播，才艺与颜值并存</p>
-                    </div>
-                    <div class="anchor-link">
-                        <a href="index.html" class="btn btn-primary">主播详情</a>
-                    </div>
-                </div>
-            </div>
-            <div class="item-list">
-                <div class="moudle-card">
-                    <div class="anchor-platform">熊猫直播</div>
-                    <div class="anchor-img">
-                        <a href="index.html">
-                            <img data-src="../public/img/2017-11-15-1245556719.jpg?v=a581632" alt="">
-                        </a>
-                    </div>
-                    <div class="anchor-con">
-                        <h3 class="name">萱宝儿Baby</h3>
-                        <span class="line"></span>
-                        <p class="desc">氧气美女主播，才艺与颜值并存</p>
-                    </div>
-                    <div class="anchor-link">
-                        <a href="index.html" class="btn btn-primary">主播详情</a>
-                    </div>
-                </div>
-            </div>
-            <div class="item-list">
-                <div class="moudle-card">
-                    <div class="anchor-platform">熊猫直播</div>
-                    <div class="anchor-img">
-                        <a href="index.html">
-                            <img data-src="../public/img/2017-11-15-1245556719.jpg?v=a581632" alt="">
-                        </a>
-                    </div>
-                    <div class="anchor-con">
-                        <h3 class="name">萱宝儿Baby</h3>
-                        <span class="line"></span>
-                        <p class="desc">氧气美女主播，才艺与颜值并存</p>
-                    </div>
-                    <div class="anchor-link">
-                        <a href="index.html" class="btn btn-primary">主播详情</a>
-                    </div>
-                </div>
-            </div>
-            <div class="item-list">
-                <div class="moudle-card">
-                    <div class="anchor-platform">熊猫直播</div>
-                    <div class="anchor-img">
-                        <a href="index.html">
-                            <img data-src="../public/img/2017-11-15-1245556719.jpg?v=a581632" alt="">
-                        </a>
-                    </div>
-                    <div class="anchor-con">
-                        <h3 class="name">萱宝儿Baby</h3>
-                        <span class="line"></span>
-                        <p class="desc">氧气美女主播，才艺与颜值并存</p>
-                    </div>
-                    <div class="anchor-link">
-                        <a href="index.html" class="btn btn-primary">主播详情</a>
-                    </div>
-                </div>
-            </div>
-            <div class="item-list">
-                <div class="moudle-card">
-                    <div class="anchor-platform">熊猫直播</div>
-                    <div class="anchor-img">
-                        <a href="index.html">
-                            <img data-src="../public/img/2017-11-15-1245556719.jpg?v=a581632" alt="">
-                        </a>
-                    </div>
-                    <div class="anchor-con">
-                        <h3 class="name">萱宝儿Baby</h3>
-                        <span class="line"></span>
-                        <p class="desc">氧气美女主播，才艺与颜值并存</p>
-                    </div>
-                    <div class="anchor-link">
-                        <a href="index.html" class="btn btn-primary">主播详情</a>
+                        <a href="{{todo.href}}" class="btn btn-primary">主播详情</a>
                     </div>
                 </div>
             </div>
@@ -464,59 +312,17 @@
     </div>
     <div class="sec sec-zb-meitu-list">
         <div class="container">
-            <div class="item-list">
+            <div v-for="todo in zhuboMeitu" class="item-list">
                 <div class="moudle-card">
                     <div class="anchor-img">
-                        <a href="index.html">
-                            <img data-src="../public/img/2017-11-19-1424378110.jpg?v=2afe528" alt="">
+                        <a href="{{todo.href}}">
+                            <img v-bind:data-src="'/public/img/' + todo.image" alt="{{todo.name}}">
                         </a>
                     </div>
                     <div class="anchor-con">
-                        <h3 class="name">WENX3X蚊子鸽鸽</h3>
+                        <h3 class="name">{{todo.name}}</h3>
                         <span class="line"></span>
-                        <p class="desc">剪云作衣衫，袖如蝶轻舞</p>
-                    </div>
-                </div>
-            </div>
-            <div class="item-list">
-                <div class="moudle-card">
-                    <div class="anchor-img">
-                        <a href="index.html">
-                            <img data-src="../public/img/2017-11-19-1424378110.jpg?v=2afe528" alt="">
-                        </a>
-                    </div>
-                    <div class="anchor-con">
-                        <h3 class="name">WENX3X蚊子鸽鸽</h3>
-                        <span class="line"></span>
-                        <p class="desc">剪云作衣衫，袖如蝶轻舞</p>
-                    </div>
-                </div>
-            </div>
-            <div class="item-list">
-                <div class="moudle-card">
-                    <div class="anchor-img">
-                        <a href="index.html">
-                            <img data-src="../public/img/2017-11-19-1424378110.jpg?v=2afe528" alt="">
-                        </a>
-                    </div>
-                    <div class="anchor-con">
-                        <h3 class="name">WENX3X蚊子鸽鸽</h3>
-                        <span class="line"></span>
-                        <p class="desc">剪云作衣衫，袖如蝶轻舞</p>
-                    </div>
-                </div>
-            </div>
-            <div class="item-list">
-                <div class="moudle-card">
-                    <div class="anchor-img">
-                        <a href="index.html">
-                            <img data-src="../public/img/2017-11-19-1424378110.jpg?v=2afe528" alt="">
-                        </a>
-                    </div>
-                    <div class="anchor-con">
-                        <h3 class="name">WENX3X蚊子鸽鸽</h3>
-                        <span class="line"></span>
-                        <p class="desc">剪云作衣衫，袖如蝶轻舞</p>
+                        <p class="desc">{{todo.desc}}</p>
                     </div>
                 </div>
             </div>
@@ -529,7 +335,7 @@
     <script src="/static/js/libs/vue.min.js?v1.0.26"></script>
     <script src="/static/js/libs/jquery.cycle.all.min.js"></script>
     <script src="../public/js/common.min.js?v=87b77db"></script>
-    <script src="../public/js/script.min.js?v=6f10259"></script>
+    <script src="../public/js/script.min.js?v=5641e90"></script>
 </body>
 
 </html>
