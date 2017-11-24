@@ -119,7 +119,6 @@ _common.sendAjax(apiBanner, {}, 'json', function(response) {
     if (response.result === 'success') {
         var res = response.data;
         vm.banner = res;
-
     } else {
         return;
     }
