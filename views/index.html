@@ -19,7 +19,8 @@
     <div class="sec sec-banner" id="banner">
         <div class="banner-container">
             <template v-for="(index, todo) in banner">
-                <div class="banner banner-{{index + 1}}" :class="todo.sale_sign === 1 ? 'banner-this' : ''">
+                <!-- <div class="banner banner-{{index + 1}}" :class="todo.sale_sign === 1 ? 'banner-this' : ''"> -->
+                    <div class="banner banner-{{index + 1}} banner-this"></div>
                     <div class="container">
                         <img v-bind:src="'/public/img/' + todo.image" alt="{{todo.title}}">
                         <div class="banner-lf">
